@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medicine Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial; padding: 20px">
+
+  <h2>Verify Medicine</h2>
+
+  <input id="code" placeholder="Enter / Scan Code"
+    style="padding:10px; width:100%; max-width:400px"/>
+
+  <br><br>
+
+  <button onclick="verify()"
+    style="padding:10px 20px;">Verify</button>
+
+  <p id="result"></p>
+
+  <script>
+    function verify() {
+      const code = document.getElementById("code").value;
+
+     fetch("/verify/" + code)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("result").innerText =
+            JSON.stringify(data, null, 2);
+        })
+        .catch(() => {
+          document.getElementById("result").innerText =
+            "Server error";
+        });
+    }
+  </script>
+
+</body>
+</html>
