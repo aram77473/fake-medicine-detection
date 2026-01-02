@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
+app.use(express.static("public"));
 
 const adminRoute = require("./routes/admin");
 const verifyRoute = require("./routes/verify");
