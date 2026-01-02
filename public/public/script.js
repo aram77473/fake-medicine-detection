@@ -1,7 +1,9 @@
 function verify() {
   const code = document.getElementById("code").value;
+  const API = "https://YOUR-RENDER-APP.onrender.com";
 
-  fetch("https://YOUR-RENDER-URL.onrender.com/verify/" + code)
+  fetch("https://fake-medicine-api.onrender.com/admin/generate")
+
     .then(res => res.json())
     .then(data => {
       if (data.success) {

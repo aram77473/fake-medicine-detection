@@ -6,11 +6,20 @@ const medicineSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  batch: String,
-  expiry: String,
-  isUsed: {
+
+  used: {
     type: Boolean,
     default: false
+  },
+
+  usedAt: {
+    type: Date,
+    default: null
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
